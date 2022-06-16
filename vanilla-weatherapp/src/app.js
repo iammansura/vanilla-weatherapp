@@ -44,8 +44,8 @@ function displayTemparature(response) {
 }
 
 let apiKey = "857fbe973ad9987d54d0a62fd2b80055";
-
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Hannover&appid=${apiKey}&units=metric`;
+let city = "Dhaka";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 console.log(apiUrl);
 
