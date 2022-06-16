@@ -21,10 +21,11 @@
       <div class="weather-app">
       <div class="wrapper">
         <div class="heading">
-        <h1>Hannover</h1>
+        <h1 id="city"></h1>
+        <p id="country"></p>
         <ul>
           <li>Thursday 7:48</li>
-          <li>Clear</li>
+          <li id="description"></li>
         </ul>
         </div>
         <div class="row">
@@ -35,16 +36,16 @@
         <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="clear"
         class="float-left"/>
         <div class="float-left">
-          <strong>21</strong><span class="degrees">°C |<a href="#">°F</a></span> 
+          <strong id="Temp"></strong><span class="degrees">°C |<a href="#">°F</a></span> 
           
        </div>
         </div>
         </div>
         <div class="col-6">
        <ul>
-        <li>Perciption: 0%</li>
-        <li>Humidity: 73% </li>
-        <li>Wind: 2 km/h</li>
+        
+        <li>Humidity: <span id="humidity"></span>  % </li>
+        <li>Wind: <span id="wind"></span> km/h</li>
        </ul>
         </div>
       
