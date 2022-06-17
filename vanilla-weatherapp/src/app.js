@@ -53,10 +53,26 @@ function displayTemparature(response) {
   icon.setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = "857fbe973ad9987d54d0a62fd2b80055";
-let city = "Dhaka";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+// Api
+function search(city) {
+  let apiKey = "857fbe973ad9987d54d0a62fd2b80055";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-console.log(apiUrl);
+  console.log(apiUrl);
 
-axios.get(apiUrl).then(displayTemparature);
+  axios.get(apiUrl).then(displayTemparature);
+}
+
+search("dhaka");
+
+// working on form & input
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  let input = document.querySelector("#search-input");
+  search(input.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
