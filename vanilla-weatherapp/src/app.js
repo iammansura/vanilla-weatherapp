@@ -69,26 +69,46 @@ function displayTemparature(response) {
 
 // working on forcast
 
+function formateDay(timestamp) {
+  let date = new Date(timestamp * 1000)
+  let days = ['sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat']
+  let day = date.getDay()
+
+  return days[day]
+}
 function displayForcast(response) {
   // console.log(response.data)
+  formateDay()
+  let forCast = response.data.daily
+
   let forcast = document.querySelector('#forcast')
+
   let forcastHTML = `<div class="row">`
   // use loop for five dayas
-  let days = ['Sat', 'Sun', 'Mon', 'Tue', 'Wed']
-  days.forEach(function (day) {
-    forcastHTML =
-      forcastHTML +
-      `
+
+  forCast.forEach(function (forecastDay, index) {
+    // use index for limit 6 day forcast show
+    if (index < 6) {
+      forcastHTML =
+        forcastHTML +
+        `
   <div class="col-2">
     <div class="weather-date">
-      ${day}
+      ${formateDay(forecastDay.dt)}
     </div>
-    <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="42" />
+    <img src="http://openweathermap.org/img/wn/${
+      forecastDay.weather[0].icon
+    }@2x.png" alt="" width="42" />
     <div class="weather-temp">
-      <span class="temp-max">26°</span>/<span class="temp-mini">19°</span>
+      <span class="temp-max">${Math.round(
+        forecastDay.temp.max,
+      )}°</span> / <span class="temp-mini">${Math.round(
+          forecastDay.temp.min,
+        )}°</span>
     </div>
   </div> 
 `
+    }
   })
 
   forcastHTML = forcastHTML + `</div>`
