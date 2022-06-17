@@ -24,7 +24,7 @@ function displayTemparature(response) {
   let temparature = document.querySelector("#Temp");
   temparature.innerHTML = Math.round(response.data.main.temp);
 
-  // here put
+  // here celsius null
   celsiustemp = response.data.main.temp;
 
   let Description = document.querySelector("#description");
@@ -57,12 +57,10 @@ function displayTemparature(response) {
 }
 
 // Api
+
 function search(city) {
   let apiKey = "857fbe973ad9987d54d0a62fd2b80055";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-  console.log(apiUrl);
-
   axios.get(apiUrl).then(displayTemparature);
 }
 
@@ -72,7 +70,6 @@ search("dhaka");
 
 function handleSubmit(event) {
   event.preventDefault();
-
   let input = document.querySelector("#search-input");
   search(input.value);
 }
@@ -84,11 +81,9 @@ form.addEventListener("submit", handleSubmit);
 
 function displayFahrenheit(event) {
   event.preventDefault();
-
   // add class to design units
   Celsius.classList.remove("celsius");
   Fahrenheit.classList.add("celsius");
-
   let temp = document.querySelector("#Temp");
   let fahrenheitTemp = (celsiustemp * 9) / 5 + 32;
   temp.innerHTML = Math.round(fahrenheitTemp);
@@ -104,10 +99,9 @@ Fahrenheit.addEventListener("click", displayFahrenheit);
 
 function displayCelsius(event) {
   event.preventDefault();
-
+  //add class to design units
   Celsius.classList.add("celsius");
   Fahrenheit.classList.remove("celsius");
-
   let temp = document.querySelector("#Temp");
   temp.innerHTML = Math.round(celsiustemp);
 }
