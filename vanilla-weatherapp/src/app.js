@@ -24,6 +24,9 @@ function displayTemparature(response) {
   let temparature = document.querySelector("#Temp");
   temparature.innerHTML = Math.round(response.data.main.temp);
 
+  // here put
+  celsiustemp = response.data.main.temp;
+
   let Description = document.querySelector("#description");
   Description.innerHTML = response.data.weather[0].description;
 
@@ -76,3 +79,38 @@ function handleSubmit(event) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+// working on Units fahrenheit / degreees
+
+function displayFahrenheit(event) {
+  event.preventDefault();
+
+  // add class to design units
+  Celsius.classList.remove("celsius");
+  Fahrenheit.classList.add("celsius");
+
+  let temp = document.querySelector("#Temp");
+  let fahrenheitTemp = (celsiustemp * 9) / 5 + 32;
+  temp.innerHTML = Math.round(fahrenheitTemp);
+}
+
+// new technics
+let celsiustemp = null;
+
+let Fahrenheit = document.querySelector("#fahrenheit");
+Fahrenheit.addEventListener("click", displayFahrenheit);
+
+// working celsius
+
+function displayCelsius(event) {
+  event.preventDefault();
+
+  Celsius.classList.add("celsius");
+  Fahrenheit.classList.remove("celsius");
+
+  let temp = document.querySelector("#Temp");
+  temp.innerHTML = Math.round(celsiustemp);
+}
+
+let Celsius = document.querySelector("#celsius");
+Celsius.addEventListener("click", displayCelsius);

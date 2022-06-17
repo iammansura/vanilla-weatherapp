@@ -53,3 +53,11 @@ li::first-letter {
   font-size: 16px;
   top: -34px;
 }
+
+.weather-temp .celsius {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+.weather-temp .celsius:hover {
+  text-decoration: none;
+}
