@@ -56,6 +56,33 @@ function displayTemparature(response) {
   icon.setAttribute("alt", response.data.weather[0].description);
 }
 
+// working on forcast
+
+function displayForcast(){
+  let forcast = document.querySelector("#forcast");
+  let forcastHTML=`<div class="row">`;
+  // use loop for five dayas
+  let days=["Sat","Sun","Mon","Tue","Wed"];
+days.forEach(function(day){
+  forcastHTML=forcastHTML+`
+  <div class="col-2">
+    <div class="weather-date">
+      ${day}
+    </div>
+    <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="42" />
+    <div class="weather-temp">
+      <span class="temp-max">26°</span>/<span class="temp-mini">19°</span>
+    </div>
+  </div> 
+`;
+});
+
+forcastHTML= forcastHTML + `</div>`;
+forcast.innerHTML=forcastHTML;
+//console.log(forcastHTML);
+}
+displayForcast();
+
 // Api
 
 function search(city) {
