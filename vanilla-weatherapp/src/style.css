@@ -61,3 +61,18 @@ li::first-letter {
 .weather-temp .celsius:hover {
   text-decoration: none;
 }
+.weather-forcast {
+  margin-top: 20px;
+  text-align: center;
+  color: #000;
+}
+.weather-date {
+  font-size: 16px;
+  opacity: 0.5;
+}
+.weather-temp {
+  font-size: 13px;
+}
+.temp-mini {
+  opacity: 0.5;
+}

@@ -1,77 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous"
-  />
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <link href="vanilla-weatherapp/src/style.css" rel="stylesheet" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <title>Vanilla-WeatherApp</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="weather-app">
+  <link href="vanilla-weatherapp/src/style.css" rel="stylesheet" />
+
+  <title>Vanilla-WeatherApp</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="weather-app">
       <div class="wrapper">
 
         <form id="search-form" class="mb-3">
           <div class="row">
             <div class="col-9">
-        <input type="text" placeholder="Change a city......"
-        class="form-control" autocomplete="off" 
-        id="search-input">
-        </div>
-        <div class="col-3">
-        <input type="submit" value="Search" class="btn btn-primary w-100">
-    
-        </div>
-        </div>
+              <input type="text" placeholder="Change a city......" class="form-control" autocomplete="off"
+                id="search-input">
+            </div>
+            <div class="col-3">
+              <input type="submit" value="Search" class="btn btn-primary w-100">
+
+            </div>
+          </div>
         </form>
 
         <div class="heading">
-        <h1 id="city"></h1>
-        <p id="country"></p>
-        <ul>
-          <li>Last Updated:  <span id="date"></span></li>
-          <li id="description"></li>
-        </ul>
+          <h1 id="city"></h1>
+          <p id="country"></p>
+          <ul>
+            <li>Last Updated: <span id="date"></span></li>
+            <li id="description"></li>
+          </ul>
         </div>
         <div class="row">
-        <div class="col-6">
+          <div class="col-6">
 
-        <div class="clearfix weather-temp"> 
+            <div class="clearfix weather-temp">
 
-        <img src="" alt="clear"
-        class="float-left" id="icon"/>
-        <div class="float-left">
-          <strong id="Temp"></strong><span class="degrees">
-            <a href="#" id="celsius" class="celsius">°C</a>|<a href="#" id="fahrenheit">°F</a></span> 
-          
-       </div>
+              <img src="" alt="clear" class="float-left" id="icon" />
+              <div class="float-left">
+                <strong id="Temp"></strong><span class="degrees">
+                  <a href="#" id="celsius" class="celsius">°C</a>|<a href="#" id="fahrenheit">°F</a></span>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <ul>
+
+              <li>Humidity: <span id="humidity"></span> % </li>
+              <li>Wind: <span id="wind"></span> km/h</li>
+            </ul>
+          </div>
+          <div class="weather-forcast">
+            <div class="row">
+              <!-- 1st -->
+              <div class="col-2">
+                <div class="weather-date">
+                  Sat
+                </div>
+                <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="42" />
+                <div class="weather-temp">
+                  <span class="temp-max">26°</span>/<span class="temp-mini">19°</span>
+                </div>
+              </div>
+
+              <!--try to do this  in javascript-->
+              <!--2nd-->
+              <!-- <div class="col-2 ml-3">
+                <div class="weather-date">
+                  Sun
+                </div>
+                <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="42" />
+                <div class="weather-temp">
+                  <span class="temp-max">26°</span>/<span class="temp-mini">12°</span>
+                </div>
+              </div> -->
+              <!-- 3rd -->
+              <!-- <div class="col-2 ml-3">
+                <div class="weather-date">
+                  Mon
+                </div>
+                <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="42" />
+                <div class="weather-temp">
+                  <span class="temp-max">22°</span>/<span class="temp-mini">8°</span>
+                </div>
+              </div> -->
+              <!-- 4th -->
+              <!-- <div class="col-2 ml-3">
+                <div class="weather-date">
+                  Tue
+                </div>
+                <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="42" />
+                <div class="weather-temp">
+                  <span class="temp-max">25°</span>/<span class="temp-mini">14°</span>
+                </div>
+              </div> -->
+              <!-- 5th -->
+              <!-- <div class="col-2 ml-3">
+                <div class="weather-date">
+                  Wed
+                </div>
+                <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="42" />
+                <div class="weather-temp">
+                  <span class="temp-max">24°</span>/<span class="temp-mini">1e°</span>
+                </div>
+              </div> -->
+
+            </div>
+          </div>
         </div>
-        </div>
-        <div class="col-6">
-       <ul>
-        
-        <li>Humidity: <span id="humidity"></span>  % </li>
-        <li>Wind: <span id="wind"></span> km/h</li>
-       </ul>
-        </div>
-      
+
+        <!--START TO BUILD FIVE DAYAS PERCEPTION-->
+
       </div>
-    </div>
-      <small> 
+
+      <small>
         <a href="https://github.com/iammansura/vanilla-weatherapp" target="_blank">
-           Open-source code</a>  by Mansura Akter
-        </small>
-      </div>
+          Open-source code</a> by Mansura Akter
+      </small>
+    </div>
     <script src="vanilla-weatherapp/src/app.js"></script>
-  </body>
+</body>
+
 </html>
