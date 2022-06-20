@@ -38,21 +38,16 @@
           <ul>
             <li><span id="date"></span></li>
             <br />
-            <li id="description"></li>
+            <li id="description" class="description"></li>
           </ul>
         </div>
         <div class="row">
           <div class="col-6">
-
             <div class="clearfix weather-temp">
-
               <img src="" alt="clear" class="float-left" id="icon" />
               <div class="float-left">
-                <strong id="Temp"></strong><span class="degrees">°C</span>
-
-                <!--   remover fahrenheit
-                  <a href="#" id="celsius" class="celsius">°C</a>|<a href="#" id="fahrenheit">°F</a></span>
-                  -->
+                <strong id="Temp"></strong><span class="degrees"><a href="#" id="celsius" class="celsius">°C</a>|
+                  <a href="#" id="fahrenheit">°F</a></span></span>
               </div>
             </div>
           </div>
@@ -60,7 +55,7 @@
           <div class="col-6">
 
             <ul>
-              <li>Feels like <strong><span id="like"> </span>°C</strong></li><br />
+              <li class="feels-like">Feels like <strong><span id="like"> </span>°C</strong></li><br />
               <li>Humidity : <span id="humidity"></span> % </li>
               <li>Wind : <span id="wind"></span> km/h</li>
               <li>Pressure : <span id="pressure"></span> mb</li>
@@ -116,14 +111,10 @@
           </div>
         </div>
       </div>
-
-
-
-
-      <small class="footer">
-        <a href="https://github.com/iammansura/vanilla-weatherapp" target="_blank">
+      <footer class="footer">
+        <a href="https://github.com/iammansura/vanilla-weatherapp" target="_blank" class="copyright">
           Open-source code</a> by Mansura Akter
-      </small>
+      </footer>
     </div>
   </div>
   <script src="vanilla-weatherapp/src/app.js"></script>
