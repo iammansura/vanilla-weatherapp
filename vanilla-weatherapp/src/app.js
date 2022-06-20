@@ -76,6 +76,9 @@ function displayTemparature(response) {
   let feelslike = document.querySelector('#like')
   feelslike.innerHTML = Math.round(response.data.main.feels_like)
 
+  let pressure = document.querySelector('#pressure')
+  pressure.innerHTML = response.data.main.pressure
+
   // icon Change
   let icon = document.querySelector('#icon')
   icon.setAttribute(
