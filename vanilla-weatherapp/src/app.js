@@ -1,3 +1,12 @@
+// firstly set day and time
+// we need api for current date and time
+function getForcast(coordinates) {
+  let apiKey = `857fbe973ad9987d54d0a62fd2b80055`
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`
+
+  axios.get(apiUrl).then(displayForcast)
+}
+
 function formatdate(date) {
   //current date and time
   let months = [
@@ -35,15 +44,11 @@ function formatdate(date) {
 let now = new Date()
 let daytime = document.querySelector('#date')
 daytime.innerHTML = formatdate(now)
+// finished fierst step
 
-// here is 5 days api funtion
-
-function getForcast(coordinates) {
-  let apiKey = `857fbe973ad9987d54d0a62fd2b80055`
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`
-
-  axios.get(apiUrl).then(displayForcast)
-}
+// start 2nd
+// here is Api for 5 days forcast and daily forcast update
+// response give us current data
 
 function displayTemparature(response) {
   console.log(response.data)
@@ -70,8 +75,8 @@ function displayTemparature(response) {
 
   let feelslike = document.querySelector('#like')
   feelslike.innerHTML = Math.round(response.data.main.feels_like)
-  // icon Change
 
+  // icon Change
   let icon = document.querySelector('#icon')
   icon.setAttribute(
     'src',
@@ -84,8 +89,8 @@ function displayTemparature(response) {
   getForcast(response.data.coord)
 }
 
-// working on forcast
-
+// working on 5 days forcast
+// this day come in number when we (timestamp*100) given than give us days name
 function formateDay(timestamp) {
   let date = new Date(timestamp * 1000)
   let days = ['sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat']
@@ -100,11 +105,12 @@ function displayForcast(response) {
 
   let forcast = document.querySelector('#forcast')
 
+  // here use div=row because we want our 5 days prediction in a row
   let forcastHTML = `<div class="row">`
   // use loop for five dayas
 
   forCast.forEach(function (forecastDay, index) {
-    // use index for limit 6 day forcast show
+    // use index for limit 6 day if we use 5 than show 5 days forcast
     if (index < 6) {
       forcastHTML =
         forcastHTML +
@@ -125,12 +131,13 @@ function displayForcast(response) {
     }
   })
 
+  //here end the div
   forcastHTML = forcastHTML + `</div>`
   forcast.innerHTML = forcastHTML
   //console.log(forcastHTML);
 }
 
-// Api
+// this second  Api use for input form
 
 function search(city) {
   let apiKey = '857fbe973ad9987d54d0a62fd2b80055'
@@ -138,6 +145,7 @@ function search(city) {
   axios.get(apiUrl).then(displayTemparature)
 }
 
+// this means when open the page alwyas show (dhakas) details than search
 search('dhaka')
 
 // working on form & input
