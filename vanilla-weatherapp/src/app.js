@@ -1,23 +1,41 @@
-function formatdate(timestamp) {
+function formatdate(date) {
   //current date and time
+  let months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ]
+  let month = months[now.getMonth()]
 
-  let dates = new Date(timestamp)
-
-  let hours = dates.getHours()
+  let hours = now.getHours()
   if (hours < 10) {
     hours = `0${hours}`
   }
 
-  let minutes = dates.getMinutes()
+  let minutes = now.getMinutes()
   if (minutes < 10) {
     minutes = `0${minutes}`
   }
 
   let days = ['sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat']
-  let day = days[dates.getDay()]
-
-  return `${day}  ${hours}:${minutes}`
+  let day = days[now.getDay()]
+  let daTe = now.getDate()
+  let today = `${month}, ${day} ${daTe} ${hours}:${minutes}`
+  return today
 }
+let now = new Date()
+let daytime = document.querySelector('#date')
+daytime.innerHTML = formatdate(now)
+
 // here is 5 days api funtion
 
 function getForcast(coordinates) {
@@ -50,9 +68,8 @@ function displayTemparature(response) {
   let wind = document.querySelector('#wind')
   wind.innerHTML = Math.round(response.data.wind.speed)
 
-  let date = document.querySelector('#date')
-  date.innerHTML = formatdate(response.data.dt * 1000)
-
+  let feelslike = document.querySelector('#like')
+  feelslike.innerHTML = Math.round(response.data.main.feels_like)
   // icon Change
 
   let icon = document.querySelector('#icon')
@@ -92,7 +109,7 @@ function displayForcast(response) {
       forcastHTML =
         forcastHTML +
         `
-  <div class="col-2">
+  <div class="col-2 ">
     <div class="weather-date">
       ${formateDay(forecastDay.dt)}
     </div>
