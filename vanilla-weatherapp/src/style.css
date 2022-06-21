@@ -37,10 +37,11 @@ li::first-letter {
 }
 .weather-app {
   max-width: 600px;
-  margin: 30px auto;
+  margin: 20px auto;
 }
 .wrapper {
   background: #fff;
+  margin: 0 auto;
   padding: 45px;
   border: 2px solid #b9d4db;
   border-radius: 12px;
@@ -84,7 +85,7 @@ li::first-letter {
   opacity: 0.8;
 }
 .weather-temp {
-  font-size: 13px;
+  font-size: 16px;
 }
 .temp-mini {
   opacity: 0.7;
