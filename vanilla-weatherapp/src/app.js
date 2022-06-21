@@ -149,7 +149,7 @@ function search(city) {
 }
 
 // this means when open the page alwyas show (dhakas) details than search
-search('dhaka')
+search('Hannover')
 
 // working on form & input
 
