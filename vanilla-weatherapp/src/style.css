@@ -63,11 +63,12 @@ li::first-letter {
 .weather-temp .degrees {
   position: relative;
   font-size: 16px;
-  top: -34px;
+  top: -30px;
 }
 
 .weather-temp .celsius {
-  color: rgb(33, 33, 33);
+  color: rgb(84, 71, 145);
+  font-size: 30px;
   cursor: default;
 }
 .weather-temp .celsius:hover {
