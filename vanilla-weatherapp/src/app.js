@@ -55,9 +55,6 @@ function displayTemparature(response) {
   let temparature = document.querySelector('#Temp')
   temparature.innerHTML = Math.round(response.data.main.temp)
 
-  // here celsius null
-  celsiustemp = response.data.main.temp
-
   let Description = document.querySelector('#description')
   Description.innerHTML = response.data.weather[0].description
 
@@ -87,6 +84,9 @@ function displayTemparature(response) {
   )
   // for img alt
   icon.setAttribute('alt', response.data.weather[0].description)
+
+  // here celsius null
+  celsiustemp = response.data.main.temp
 
   // 5 days api inject in this funstion
   getForcast(response.data.coord)
@@ -188,6 +188,7 @@ function displayCelsius(event) {
   //add class to design units
   Celsius.classList.add('celsius')
   Fahrenheit.classList.remove('celsius')
+
   let temp = document.querySelector('#Temp')
   temp.innerHTML = Math.round(celsiustemp)
 }
