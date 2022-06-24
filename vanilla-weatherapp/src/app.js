@@ -86,7 +86,7 @@ function displayTemparature(response) {
   icon.setAttribute('alt', response.data.weather[0].description)
 
   // here celsius null
-  celsiustemp = response.data.main.temp
+  //celsiustemp = response.data.main.temp
 
   // 5 days api inject in this funstion
   getForcast(response.data.coord)
@@ -165,33 +165,33 @@ form.addEventListener('submit', handleSubmit)
 // delet fHRNHEIT
 // working on Units fahrenheit / degreees
 
-function displayFahrenheit(event) {
-  event.preventDefault()
-  //   // add class to design units
-  Celsius.classList.remove('celsius')
-  Fahrenheit.classList.add('celsius')
-  let temp = document.querySelector('#Temp')
-  let fahrenheitTemp = (celsiustemp * 9) / 5 + 32
-  temp.innerHTML = Math.round(fahrenheitTemp)
-}
-// // new technics
-let celsiustemp = null
+// function displayFahrenheit(event) {
+//   event.preventDefault()
+//   //   // add class to design units
+//   Celsius.classList.remove('celsius')
+//   Fahrenheit.classList.add('celsius')
+//   let temp = document.querySelector('#Temp')
+//   let fahrenheitTemp = (celsiustemp * 9) / 5 + 32
+//   temp.innerHTML = Math.round(fahrenheitTemp)
+// }
+// // // new technics
+// let celsiustemp = null
 
-let Fahrenheit = document.querySelector('#fahrenheit')
-Fahrenheit.addEventListener('click', displayFahrenheit)
+// let Fahrenheit = document.querySelector('#fahrenheit')
+// Fahrenheit.addEventListener('click', displayFahrenheit)
 
-// DELET CELCIUS.
+// // DELET CELCIUS.
 
-// working celsius
-function displayCelsius(event) {
-  event.preventDefault()
-  //add class to design units
-  Celsius.classList.add('celsius')
-  Fahrenheit.classList.remove('celsius')
+// // working celsius
+// function displayCelsius(event) {
+//   event.preventDefault()
+//   //add class to design units
+//   Celsius.classList.add('celsius')
+//   Fahrenheit.classList.remove('celsius')
 
-  let temp = document.querySelector('#Temp')
-  temp.innerHTML = Math.round(celsiustemp)
-}
+//   let temp = document.querySelector('#Temp')
+//   temp.innerHTML = Math.round(celsiustemp)
+// }
 
-let Celsius = document.querySelector('#celsius')
-Celsius.addEventListener('click', displayCelsius)
+// let Celsius = document.querySelector('#celsius')
+// Celsius.addEventListener('click', displayCelsius)
